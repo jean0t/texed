@@ -51,7 +51,7 @@ _obs:_ Do not forget to install the dependency
 
 
 ## Usage
-Once Texed is running, you can use the following basic commands (replace this with actual commands if any):
+Once Texed is running, you can use the following basic commands:
 - Start typing to edit text.
 - Save your file with `ctrl+s`.
 - Exit the editor with `ctrl+q`.
