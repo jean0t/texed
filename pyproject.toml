@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "texed"
+version = "1.0"
+description = "A simple and fast text editor made in python"
+authors = ["jean0t <joaomouryf@hotmail.com>"]
+license = "GPL-3"
+readme = "README.md"
+packages = [{include = "src"}]
+
+
+[tool.poetry.dependencies]
+python = "^3.13"
+prompt-toolkit = "^3.0.48"
+
+
+[tool.poetry.scripts]
+texed = "src.main:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
