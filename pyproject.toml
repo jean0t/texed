@@ -3,7 +3,7 @@ name = "texed"
 version = "1.0"
 description = "A simple and fast text editor made in python"
 authors = ["jean0t <joaomouryf@hotmail.com>"]
-license = "GPL-3"
+license = { file = "LICENSE" }
 readme = "README.md"
 packages = [{include = "src"}]
 
