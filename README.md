@@ -22,6 +22,7 @@ Texed requires Python 3.7 or higher. To get started:
 2. Install the required dependency:
    ```bash
    pip install prompt_toolkit
+   pip install pygments
    ```
 
 3. Run Texed:
@@ -42,9 +43,9 @@ Texed requires Python 3.7 or higher. To get started:
     cd dist/ 
     ```
 
-3. Install with pip:
+3. Install with pipx:
     ```bash
-    pip install texed*.whl
+    pipx install texed*.whl
     ```
 
 _obs:_ Do not forget to install the dependency
