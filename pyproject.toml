@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "texed"
-version = "1.0"
+version = "2.0"
 description = "A simple and fast text editor made in python"
 authors = ["jean0t <joaomouryf@hotmail.com>"]
-license = { file = "LICENSE" }
+license = "GPL-3.0"
 readme = "README.md"
 packages = [{include = "src"}]
 
