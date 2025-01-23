@@ -1,5 +1,5 @@
 from prompt_toolkit.shortcuts import input_dialog
-from app import App
+from src.app import App
 from sys import argv
 from datetime import datetime
 

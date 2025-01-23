@@ -11,6 +11,7 @@ packages = [{include = "src"}]
 [tool.poetry.dependencies]
 python = "^3.13"
 prompt-toolkit = "^3.0.48"
+pygments = "^2.19.1"
 
 
 [tool.poetry.scripts]
