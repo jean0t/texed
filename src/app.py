@@ -32,9 +32,7 @@ class App:
         # responsible to sabe the file
         @self.kb.add("c-s")
         def _(event):
-            with open(self.app_path, "w") as f:
-                f.write(self.buffer.text)
-
+            self.app_path.write_text(self.buffer.text)
         # responsible to quit the application
         @self.kb.add("c-q")
         def _(event):
@@ -61,15 +59,13 @@ class App:
     
 
     def set_path(self, path):
-        if Path(path).exists():
-            self.app_path = Path(path)
-            with open(self.app_path, "r") as f:
-                self.buffer.text = f.read()
+        self.app_path = Path(path)
+        self.app_path.touch(exist_ok=True)
 
         if Path(path).is_dir():
             exit(1)
-
-        self.app_path = Path(path)
+        
+        self.buffer.text = self.app_path.read_text()
         self.file_suffix = self.app_path.suffix
 
 

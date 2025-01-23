@@ -8,8 +8,8 @@ def main():
         app = App()
         if len(argv) < 2:
             now = datetime.now()
-            format_date = now.strftime("%Y/%m/%d_%H:%M")
-            app.set_path(format_date + ".txt")
+            format_date = now.strftime("%Y-%m-%d_%H:%M")
+            app.set_path(f"{format_date}.txt")
         else:
             app.set_path(argv[1])
 
