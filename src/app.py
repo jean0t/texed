@@ -16,6 +16,7 @@ from pygments.lexers.javascript import JavascriptLexer
 from pygments.lexers.c_cpp import CLexer
 
 from pathlib import Path
+from datetime import datetime
 
 class App:
     def __init__(self):
@@ -25,14 +26,19 @@ class App:
         self.root_container = None
         self.layout = None
         self.app_path = None
-        self.file_suffix = None
+        self.file_suffix = ".txt"
         self.window = None
         self.highlight = {".py": PygmentsLexer(PythonLexer), ".go": PygmentsLexer(GoLexer), ".java": PygmentsLexer(JavaLexer), ".sh": PygmentsLexer(BashLexer), ".js": PygmentsLexer(JavascriptLexer), ".c": PygmentsLexer(CLexer)}
         
         # responsible to sabe the file
         @self.kb.add("c-s")
         def _(event):
+            if self.app_path is None:
+                now = datetime.now()
+                format_date = now.strftime("%Y-%m-%d_%H-%M")
+                self.app_path = Path(format_date + ".txt")
             self.app_path.write_text(self.buffer.text)
+
         # responsible to quit the application
         @self.kb.add("c-q")
         def _(event):
@@ -59,14 +65,15 @@ class App:
     
 
     def set_path(self, path):
-        self.app_path = Path(path)
-        self.app_path.touch(exist_ok=True)
-
-        if Path(path).is_dir():
-            exit(1)
-        
-        self.buffer.text = self.app_path.read_text()
-        self.file_suffix = self.app_path.suffix
+        if path != "":
+            if Path(path).is_dir():
+                exit(1)
+            
+            self.app_path = Path(path)
+            
+            if self.app_path.exists():
+                self.buffer.text = self.app_path.read_text()
+                self.file_suffix = self.app_path.suffix
 
 
     def configure(self):
