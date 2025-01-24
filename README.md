@@ -57,6 +57,8 @@ Once Texed is running, you can use the following basic commands:
 - Save your file with `ctrl+s`.
 - Exit the editor with `ctrl+q`.
 
+https://github.com/user-attachments/assets/91ca96a5-34ab-4150-b58f-477a551d8af6
+
 
 ## License
 Texed is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html). Feel free to use, modify, and distribute the software under the terms of this license.
