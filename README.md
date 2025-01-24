@@ -9,7 +9,7 @@ Texed is a lightweight, fast, and simple text editor written in Python. Designed
 - **Simple and Intuitive**: Focused on essential editing features without unnecessary complexity.
 
 ## Installation
-Texed requires Python 3.7 or higher. To get started:
+Texed requires Python 3.8 or higher. To get started:
 
 ### First method
 

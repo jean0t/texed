@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "texed"
-version = "2.1"
+version = "2.1.1"
 description = "A simple and fast text editor made in python"
 authors = ["jean0t <joaomouryf@hotmail.com>"]
 license = "GPL-3.0"
@@ -9,7 +9,7 @@ packages = [{include = "src"}]
 
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 prompt-toolkit = "^3.0.48"
 pygments = "^2.19.1"
 
