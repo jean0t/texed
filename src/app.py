@@ -89,7 +89,7 @@ class App:
     def configure(self):
         #take care of the highlight
         if self.highlight.get(self.file_suffix, False):
-            self.window = Window(content=BufferControl(buffer=self.buffer, lexer=self.highlight.get(self.file_suffix)), wrap_lines=True)
+            self.window = Window(content=BufferControl(buffer=self.buffer, lexer=self.highlight.get(self.file_suffix), input_processors=[DisplayTabs()]), wrap_lines=True)
         
         else:
             self.window = Window(content=BufferControl(buffer=self.buffer, input_processors=[DisplayTabs()]), wrap_lines=True)
