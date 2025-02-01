@@ -54,11 +54,6 @@ class App:
         def _(event):
             event.app.exit()
 
-        # responsible to add spaces when pressing tab
-        @self.kb.add("c-i")
-        def _(event):
-            self.buffer.insert_text(" " * TAB_SIZE)
-
         # responsible to go back to the begin of the line
         @self.kb.add("c-a")
         def _(event):
