@@ -56,6 +56,9 @@ Once Texed is running, you can use the following basic commands:
 - Start typing to edit text.
 - Save your file with `ctrl+s`.
 - Exit the editor with `ctrl+q`.
+- Cut from cursor to the end of the line `ctrl+u`
+- Switch characters from cursor `ctrl+t`
+- Move word `ctrl+arrows`
 
 https://github.com/user-attachments/assets/91ca96a5-34ab-4150-b58f-477a551d8af6
 
