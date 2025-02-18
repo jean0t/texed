@@ -7,7 +7,7 @@ from prompt_toolkit.buffer import Buffer
 from prompt_toolkit.lexers import PygmentsLexer
 from prompt_toolkit.layout.containers import HSplit, Window
 from prompt_toolkit.layout.layout import Layout
-from prompt_toolkit.layout.processors import Processor, Transformation
+from prompt_toolkit.layout.processors import TabsProcessor
 
 from pygments.lexers.python import PythonLexer
 from pygments.lexers.go import GoLexer
@@ -21,12 +21,6 @@ from datetime import datetime
 
 
 TAB_SIZE = 4
-class DisplayTabs(Processor):
-    def apply_transformation(self, transformation_input):
-        fragments = transformation_input.fragments
-        new_fragments = [(style, text.replace("\t", " " * TAB_SIZE)) for style, text in fragments]
-        return Transformation(new_fragments)
-
 
 class App:
     def __init__(self):
@@ -68,6 +62,9 @@ class App:
             line_end = self.buffer.document.get_end_of_line_position()
             self.buffer.cursor_position += line_end
     
+        @self.kb.add("c-i")
+        def _(event):
+            self.buffer.insert_text("\t")
 
     def set_path(self, path):
         if path != "":
@@ -84,10 +81,10 @@ class App:
     def configure(self):
         #take care of the highlight
         if self.highlight.get(self.file_suffix, False):
-            self.window = Window(content=BufferControl(buffer=self.buffer, lexer=self.highlight.get(self.file_suffix), input_processors=[DisplayTabs()]), wrap_lines=True)
+            self.window = Window(content=BufferControl(buffer=self.buffer, lexer=self.highlight.get(self.file_suffix), input_processors=[TabsProcessor(tabstop= TAB_SIZE)]), wrap_lines=True)
         
         else:
-            self.window = Window(content=BufferControl(buffer=self.buffer, input_processors=[DisplayTabs()]), wrap_lines=True)
+            self.window = Window(content=BufferControl(buffer=self.buffer, input_processors=[TabsProcessor(tabstop= TAB_SIZE)]), wrap_lines=True)
 
 
         self.root_container = HSplit([
