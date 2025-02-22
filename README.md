@@ -27,7 +27,7 @@ Texed requires Python 3.8 or higher. To get started:
 
 3. Run Texed:
    ```bash
-   python texed.py
+   python main.py
    ```
 
 ### Second method
